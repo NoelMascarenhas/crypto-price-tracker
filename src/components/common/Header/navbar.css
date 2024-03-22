@@ -1,0 +1,56 @@
+.navbar{
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background-color: var(--black);
+    top: 0;
+    left: 0;
+}
+.logo{
+    font-size: 1.3rem;
+}
+
+.links{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.link{
+    color: var(--grey);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.link:hover{
+    color: var(--white);
+    transition: all 0.3s;
+}
+
+.drawer{
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .navbar{
+        padding: 1.5rem;
+    }
+    .logo{
+        font-size: 1rem;
+    }
+    .links{
+        display: none;
+    }
+    .drawer{
+        display: block;
+    }
+    .drawer-div{
+        width: 40vw;
+        background-color: var(--black);
+        height: 100vh;
+        padding: 0.5rem 1.5rem;
+    }
+}
