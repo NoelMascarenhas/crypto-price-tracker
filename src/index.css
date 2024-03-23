@@ -3,10 +3,10 @@
 :root{
   --white:#fff;
   --black:#111;
-  --blue:#3a80e9;
+  --yellow:#F0B90B;
   --grey:#888;
   --darkgrey:#1b1b1b;
-  --geen:#61c96f;
+  --green:#61c96f;
   --red:#f94141;
 }
 
@@ -20,7 +20,7 @@ body {
   font-family: "Inter",sans-serif;
 }
 ::selection{
-  background-color: var(--blue);
+  background-color: var(--yellow);
   color: var(--white);
 }
 
@@ -36,7 +36,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--blue);
+  background: var(--yellow);
   border-radius: 3rem;
 }
 

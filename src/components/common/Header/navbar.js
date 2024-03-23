@@ -7,7 +7,7 @@ function Navbar(){
     return (
         <div className='navbar'>
             <h1 className='logo'>
-                CryptoPriceTracker<span style={{color:"var(--blue)"}}>.</span>
+                CryptoPriceTracker<span style={{color:"var(--yellow)"}}>.</span>
             </h1>
             <div className='links'>
                 <a href='/'>
