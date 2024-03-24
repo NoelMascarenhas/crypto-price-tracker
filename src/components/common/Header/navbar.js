@@ -2,6 +2,7 @@ import React from 'react'
 import "./navbar.css"; 
 import TemporaryDrawer from "./drawer.js"
 import Button from '../Button/button.js';
+import { Link } from 'react-router-dom';
 
 function Navbar(){
     return (
@@ -10,18 +11,18 @@ function Navbar(){
                 CryptoPriceTracker<span style={{color:"var(--yellow)"}}>.</span>
             </h1>
             <div className='links'>
-                <a href='/'>
+                <Link to='/'>
                     <p className='link'>Home</p>
-                </a>
-                <a href='/'>
+                </Link>
+                <Link to='/compare'>
                     <p className='link'>Compare</p>
-                </a>
-                <a href='/'>
+                </Link>
+                <Link to='/watchlist'>
                     <p className='link'>Watchlist</p>
-                </a>
-                <a href='/'>
+                </Link>
+                <Link to='/dashboard'>
                     <Button outlined={true} text={"Dashboard"} onClick={()=>console.log("button clicked")}/>
-                </a>
+                </Link>
             </div>
             <div className='drawer'>
                 <TemporaryDrawer/>
