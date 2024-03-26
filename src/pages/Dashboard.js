@@ -2,9 +2,19 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Header from "../components/common/Header/navbar.js";
 import Grid from "../components/dashboard/grid/grid.js";
+import Search from "../components/dashboard/search/search.js";
 
 function Dashboard() {
     const [coins,setCoins] = useState([]);
+    const [search, setSearch] = useState("");
+
+    const onSearchChange=(e)=>{
+      setSearch(e.target.value)
+    }
+
+    var filteredCoins = coins.filter((item)=>
+      item.name.toLowerCase().includes(search.toLowerCase()) || item.symbol.toLowerCase().includes(search.toLowerCase()));
+
     useEffect(() => {
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false')
         .then((response) => {
@@ -19,9 +29,10 @@ function Dashboard() {
   return (
     <div>
         <Header/> 
+        <Search search={search} onSearchChange={onSearchChange}/>
         <div className="grid-flex">
-          {coins.length > 0 ? (
-            coins.map((coin, i) => (
+          {filteredCoins.length > 0 ? (
+            filteredCoins.map((coin, i) => (
               <Grid coin={coin} key={i} delay={(i % 4) * 0.2} />
             ))
           ) : (
