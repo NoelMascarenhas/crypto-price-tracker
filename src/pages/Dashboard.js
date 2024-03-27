@@ -3,10 +3,13 @@ import axios from 'axios'
 import Header from "../components/common/Header/navbar.js";
 import Grid from "../components/dashboard/grid/grid.js";
 import Search from "../components/dashboard/search/search.js";
+import Loader from '../components/common/Loader/loader.js';
+import BackToTop from '../components/common/BackToTop/index.js';
 
 function Dashboard() {
     const [coins,setCoins] = useState([]);
     const [search, setSearch] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
     const onSearchChange=(e)=>{
       setSearch(e.target.value)
@@ -20,30 +23,36 @@ function Dashboard() {
         .then((response) => {
             console.log("Response>>>",response);
             setCoins(response.data);
+            setIsLoading(false);
         })
         .catch((error) => {
-            console.log("Error>>>",error)
+            console.log("Error>>>",error);
+            setIsLoading(false);
         })
     }, []);
 
   return (
-    <div>
-        <Header/> 
-        <Search search={search} onSearchChange={onSearchChange}/>
-        <div className="grid-flex">
-          {filteredCoins.length > 0 ? (
-            filteredCoins.map((coin, i) => (
-              <Grid coin={coin} key={i} delay={(i % 4) * 0.2} />
-            ))
-          ) : (
-            <div>
-              <h1 style={{ textAlign: "center" }}>
-                Sorry, Couldn't find the coin you're looking for 😞
-              </h1>
-            </div>
-          )}
-        </div>
-    </div>
+    <>
+      <Header/>
+      <BackToTop/> 
+      {isLoading ? (<Loader/>):
+        <div>
+          <Search search={search} onSearchChange={onSearchChange}/>
+          <div className="grid-flex">
+            {filteredCoins.length > 0 ? (
+              filteredCoins.map((coin, i) => (
+                <Grid coin={coin} key={i} delay={(i % 4) * 0.2} />
+              ))
+            ) : (
+              <div>
+                <h1 style={{ textAlign: "center" }}>
+                  Sorry, Couldn't find the coin you're looking for 😞
+                </h1>
+              </div>
+            )}
+          </div>
+      </div>}
+    </>
   )
 }
 

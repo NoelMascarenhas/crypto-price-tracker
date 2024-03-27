@@ -43,6 +43,7 @@ function LandingPage() {
             />
             <img className="gradient" src={gradient} alt='gradient'/>
         </div>
+
     </div>
   )
 }

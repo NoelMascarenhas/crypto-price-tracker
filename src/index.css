@@ -10,6 +10,10 @@
   --red:#f94141;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +21,7 @@ body {
   background-color: var(--black);
   color: var(--white);
   height: 200vh;
-  font-family: "Inter",sans-serif;
+  font-family: "Montserrat",sans-serif;
 }
 ::selection{
   background-color: var(--yellow);
