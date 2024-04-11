@@ -34,9 +34,10 @@
 .btn-flex{
     display: flex;
     justify-content: flex-start;
-    gap: 1.5rem;
+    /* gap: 1.5rem; */
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 0rem;
+    font-size: x-small;
 }
 
 .phone{

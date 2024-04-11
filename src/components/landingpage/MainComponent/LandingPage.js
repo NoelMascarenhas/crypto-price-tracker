@@ -3,7 +3,9 @@ import "./LandingPage.css"
 import Button from '../../common/Button/button'
 import iphone from '../../../assets/iphone.png'
 import gradient from '../../../assets/gradient.png'
+import animationData from '../../../assets/animation.json'
 import {motion} from 'framer-motion'
+import Lottie from "lottie-react"
 
 function LandingPage() {
   return (
@@ -31,8 +33,7 @@ function LandingPage() {
                 animate={{opacity: 1, x: 0}}
                 transition={{duration: 0.5, delay: 1.5}}
             >
-                <Button text={"Dashboard"}/>
-                <Button text={"Share"} outlined={true}/>
+                <Lottie animationData={animationData}/>
             </motion.div>
         </div>
         <div className='phone'>
